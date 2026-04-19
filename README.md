@@ -1,41 +1,75 @@
 # UniStay — Student Hostel Management Dashboard
 
-> A React web application for managing student hostel complaints, tracking mess menus, and providing admin oversight — all in one centralized platform.
+> A full-stack React + Firebase web application for managing student hostel complaints, tracking mess menus, and providing admin oversight — all in one centralized platform.
 
 ---
 
-## Problem Statement
+## Live Demo
 
-Student hostels currently handle complaints (cleaning, WiFi, electricity, ragging, etc.) through informal channels like WhatsApp groups and Google Forms. This leads to:
+**Live Application:** unistay-hostel-management.vercel.app  
+  
+> Use a test account or sign up to explore the full experience.
+
+---
+
+## Problem
+
+Student hostels currently handle complaints (cleaning, WiFi, electricity, ragging, etc.) through informal channels like:
+- WhatsApp groups (spam + no tracking)
+- Google Forms (no updates)
+- Verbal complaints (no accountability)
+
+This leads to:
 - **No tracking** — complaints disappear after resolution
 - **No accountability** — nobody knows what's being worked on
 - **Poor transparency** — students can't see complaint status
 - **Unsafe reporting** — sensitive issues like ragging have no anonymous outlet
+- **No Prioritization** — urgent issues could be ignored
 
-**UniStay** solves this with a structured, transparent, role-aware web application.
+**UniStay** solves this with a structured, transparent, role-aware and real-time system.
 
 ---
 
 ## Features
 
-### For Students
-- Email/password authentication with persistent sessions
-- Personal room dashboard
-- Raise complaints with category, urgency, and optional **anonymous mode**
-- Track complaint status (Pending → In Progress → Resolved)
-- View weekly mess menu (Breakfast / Lunch / Dinner)
-- Dashboard with complaint stats and charts
+### Student Experience
+- Email/password Authentication with persistent sessions (Firebase Auth)
+- Raise complaints with:
+  - Category (WiFi, Electricity, Mess, Ragging, etc.)
+  - Urgency flag
+  - Optional **anonymous mode**
+- Personal dashboard:
+  - Total complaints
+  - Status breakdown (Pending → In Progress → Resolved)
+- Smart filtering:
+  - Status, category, search
+  - “My complaints” toggle
+- **Hybrid visibility system**:
+  - See all complaints (except ragging)
+  - Identity hidden for anonymous posts
+- **Upvote system**:
+  - Prioritize common issues democratically
+- Weekly mess menu viewer
 
-### For Admins
-- View **all** complaints across all students
-- Update complaint status in real-time
-- Category breakdown and insights
-- Urgent/Ragging complaint highlighting
+### Admin Experience
+- Full visibility across all complaints
+- Real-time complaint updates
+- Status control:
+  - Pending → In Progress → Resolved
+- Urgent & ragging highlighting
+- **Mess menu editor (live update from frontend)**
+- System-wide insights via dashboard
 
 ### Security
-- Anonymous complaints never store user identity in DB
-- Firestore security rules enforce role-based access
-- Protected routes for all authenticated content
+
+UniStay is built with **intentional guardrails**:
+
+- Ragging complaints → **admin only visibility**
+- Anonymous complaints → **no identity stored or shown**
+- User identity:
+  - Visible only to **admin or complaint owner**
+- Upvotes:
+  - Controlled via Firestore + frontend checks
 
 ---
 
@@ -52,25 +86,6 @@ Student hostels currently handle complaints (cleaning, WiFi, electricity, raggin
 | Date Formatting | date-fns |
 | Styling | CSS Modules (custom design system) |
 | Deployment | Vercel |
-
----
-
-## React Concepts Used
-
-| Concept | Where |
-|---|---|
-| `useState` | All forms, filters, loading states |
-| `useEffect` | Auth listener, data fetching |
-| `useContext` | Auth + Complaints global state |
-| `useMemo` | Filtered complaints list, dashboard stats |
-| `useCallback` | Event handlers, submit handlers |
-| `useRef` | (available for future form focus management) |
-| `React.lazy` + `Suspense` | All pages are lazy-loaded |
-| Controlled Forms | Login, Signup, Add Complaint |
-| React Router | Multi-page navigation, protected routes |
-| Lifting State Up | Complaints shared across pages via context |
-| Conditional Rendering | Auth gates, empty states, loading skeletons |
-| Lists & Keys | Complaint cards, menu items |
 
 ---
 
@@ -118,9 +133,9 @@ src/
 ```json
 {
   "id": "uid",
-  "name": "Arjun Mehta",
-  "email": "arjun@college.edu",
-  "roomNumber": "A-204",
+  "name": "User Name",
+  "email": "user@email.com",
+  "roomNumber": "204",
   "role": "student",
   "createdAt": "timestamp"
 }
@@ -130,15 +145,17 @@ src/
 ```json
 {
   "title": "WiFi not working",
-  "description": "No internet in Block C since yesterday",
+  "description": "No internet since yesterday",
   "category": "WiFi",
   "status": "Pending",
   "isAnonymous": false,
   "isUrgent": true,
-  "location": "Block C, Floor 2",
+  "location": "Floor 2",
   "createdBy": "uid or null",
-  "createdByName": "Arjun Mehta or null",
-  "createdByRoom": "A-204 or null",
+  "createdByName": "User Name or null",
+  "createdByRoom": "204 or null",
+  "upvotes": 0,
+  "upvotedBy": [],
   "createdAt": "timestamp"
 }
 ```
@@ -224,20 +241,9 @@ Add your `.env` variables in the Vercel dashboard under **Project Settings → E
 
 ---
 
-## Design System
-
-- **Font Display:** Syne (bold geometric headers)
-- **Font Body:** DM Sans (clean, readable)
-- **Primary:** Deep navy `#0d0f1a`
-- **Accent:** Amber `#f59e0b`
-- **Status Colors:** Yellow (Pending), Blue (In Progress), Green (Resolved), Red (Urgent/Ragging)
-- **Approach:** CSS Modules with CSS custom properties for full theming consistency
-
----
-
 ## Security Rules Summary
 
-- Students can only read their own complaints
+- Students can only read their own complaints (scoped access)
 - Anonymous complaint data never stores user identity (enforced at application layer)
 - Only admins can update complaint status (enforced at Firestore rules layer)
 - Mess menu is read-only for students, write-only for admins
