@@ -1,10 +1,10 @@
-# 🏠 UniStay — Student Hostel Management Dashboard
+# UniStay — Student Hostel Management Dashboard
 
-> A production-quality React web application for managing student hostel complaints, tracking mess menus, and providing admin oversight — all in one centralized platform.
+> A React web application for managing student hostel complaints, tracking mess menus, and providing admin oversight — all in one centralized platform.
 
 ---
 
-## 📋 Problem Statement
+## Problem Statement
 
 Student hostels currently handle complaints (cleaning, WiFi, electricity, ragging, etc.) through informal channels like WhatsApp groups and Google Forms. This leads to:
 - **No tracking** — complaints disappear after resolution
@@ -16,30 +16,30 @@ Student hostels currently handle complaints (cleaning, WiFi, electricity, raggin
 
 ---
 
-## ✨ Features
+## Features
 
 ### For Students
-- 🔐 Email/password authentication with persistent sessions
-- 🏠 Personal room dashboard
-- 📝 Raise complaints with category, urgency, and optional **anonymous mode**
-- 📊 Track complaint status (Pending → In Progress → Resolved)
-- 🍽️ View weekly mess menu (Breakfast / Lunch / Dinner)
-- 📈 Dashboard with complaint stats and charts
+- Email/password authentication with persistent sessions
+- Personal room dashboard
+- Raise complaints with category, urgency, and optional **anonymous mode**
+- Track complaint status (Pending → In Progress → Resolved)
+- View weekly mess menu (Breakfast / Lunch / Dinner)
+- Dashboard with complaint stats and charts
 
 ### For Admins
-- 👁️ View **all** complaints across all students
-- 🔄 Update complaint status in real-time
-- 📊 Category breakdown and insights
-- 🚨 Urgent/Ragging complaint highlighting
+- View **all** complaints across all students
+- Update complaint status in real-time
+- Category breakdown and insights
+- Urgent/Ragging complaint highlighting
 
 ### Security
-- 🕵️ Anonymous complaints never store user identity in DB
-- 🔒 Firestore security rules enforce role-based access
-- 🛡️ Protected routes for all authenticated content
+- Anonymous complaints never store user identity in DB
+- Firestore security rules enforce role-based access
+- Protected routes for all authenticated content
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -55,7 +55,7 @@ Student hostels currently handle complaints (cleaning, WiFi, electricity, raggin
 
 ---
 
-## ⚛️ React Concepts Used
+## React Concepts Used
 
 | Concept | Where |
 |---|---|
@@ -74,7 +74,7 @@ Student hostels currently handle complaints (cleaning, WiFi, electricity, raggin
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -112,7 +112,7 @@ src/
 
 ---
 
-## 🗄️ Database Schema (Firestore)
+## Database Schema (Firestore)
 
 ### `users/{uid}`
 ```json
@@ -155,7 +155,7 @@ src/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the repository
 ```bash
@@ -213,7 +213,7 @@ Or temporarily add a button in development that calls `seedMessMenu()`.
 
 ---
 
-## 🌐 Deploy to Vercel
+## Deploy to Vercel
 
 ```bash
 npm run build
@@ -224,7 +224,7 @@ Add your `.env` variables in the Vercel dashboard under **Project Settings → E
 
 ---
 
-## 🎨 Design System
+## Design System
 
 - **Font Display:** Syne (bold geometric headers)
 - **Font Body:** DM Sans (clean, readable)
@@ -235,7 +235,7 @@ Add your `.env` variables in the Vercel dashboard under **Project Settings → E
 
 ---
 
-## 🔐 Security Rules Summary
+## Security Rules Summary
 
 - Students can only read their own complaints
 - Anonymous complaint data never stores user identity (enforced at application layer)
@@ -244,23 +244,7 @@ Add your `.env` variables in the Vercel dashboard under **Project Settings → E
 
 ---
 
-## 🧑‍⚖️ Evaluation Rubric Alignment
+## Author
 
-| Criteria | Implementation |
-|---|---|
-| Problem Statement (15) | Real hostel complaint management replacing WhatsApp/forms |
-| React Fundamentals (20) | useState, useEffect, props, conditional rendering, lists+keys |
-| Advanced React (15) | useMemo, useCallback, React.lazy+Suspense, Context API |
-| Backend Integration (15) | Firebase Auth + Firestore, CRUD, real-time subscriptions |
-| UI/UX (10) | Dark design system, responsive, loading skeletons, empty states |
-| Code Quality (10) | Feature-based structure, separation of concerns, CSS Modules |
-| Functionality (10) | Auth, complaints CRUD, filtering, mess menu, dashboard charts |
-| Demo & Explanation (5) | Clear architecture, justifiable tech decisions |
+Built by Srujana Sawant as an end-term project for **Building Web Applications with React** — Batch 2029.
 
----
-
-## 👤 Author
-
-Built as an end-term project for **Building Web Applications with React** — Batch 2029.
-
-> "This is not just an assignment — it's a portfolio piece."
