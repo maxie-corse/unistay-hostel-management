@@ -96,7 +96,7 @@ export default function AddComplaintPage() {
               value={form.title}
               onChange={handleChange}
               className={`${styles.input} ${errors.title ? styles.inputError : ''}`}
-              placeholder="e.g. WiFi not working in Block C"
+              placeholder="e.g. WiFi not working in Room 012"
               maxLength={100}
             />
             {errors.title && <span className={styles.errMsg}>{errors.title}</span>}
@@ -131,7 +131,7 @@ export default function AddComplaintPage() {
                 value={form.location}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder="e.g. Block A, Floor 2"
+                placeholder="e.g. Ground Floor, Room 012"
                 maxLength={80}
               />
             </div>
