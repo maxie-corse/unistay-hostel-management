@@ -62,11 +62,11 @@ export default function DashboardPage() {
 
       {/* Stats */}
       <div className={styles.statsGrid}>
-        <StatCard label="Total Complaints" value={stats.total} icon="📋" accent="var(--blue)" />
-        <StatCard label="Pending" value={stats.pending} icon="⏳" accent="var(--yellow)"
+        <StatCard label="Total Complaints" value={stats.total} accent="var(--blue)" />
+        <StatCard label="Pending" value={stats.pending} accent="var(--yellow)"
           sub={stats.total ? `${Math.round(stats.pending/stats.total*100)}% of total` : undefined} />
-        <StatCard label="In Progress" value={stats.inProgress} icon="🔧" accent="var(--blue)" />
-        <StatCard label="Resolved" value={stats.resolved} icon="✅" accent="var(--green)"
+        <StatCard label="In Progress" value={stats.inProgress} accent="var(--blue)" />
+        <StatCard label="Resolved" value={stats.resolved} accent="var(--green)"
           sub={stats.total ? `${Math.round(stats.resolved/stats.total*100)}% resolved` : undefined} />
       </div>
 
