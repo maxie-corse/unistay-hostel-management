@@ -5,7 +5,7 @@ export default function StatCard({ label, value, icon, accent, sub }) {
   return (
     <div className={styles.card} style={{ '--card-accent': accent }}>
       <div className={styles.top}>
-        <span className={styles.icon}>{icon}</span>
+        <img className={styles.icon} src={icon} alt={label} />
         <span className={styles.label}>{label}</span>
       </div>
       <div className={styles.value}>{value}</div>

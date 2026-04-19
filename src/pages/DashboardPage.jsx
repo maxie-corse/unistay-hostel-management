@@ -13,6 +13,11 @@ import { CATEGORY_ICONS } from '../utils/helpers';
 import styles from './DashboardPage.module.css';
 import { seedMessMenu } from '../services/firebase';
 
+import totalIcon from '../assets/total_complaints.png';
+import pendingIcon from '../assets/pending_complaints.png';
+import inprogressIcon from '../assets/inprogress_complaints.png';
+import resolvedIcon from '../assets/resolved_complaints.png';
+
 const CHART_COLORS = ['#f59e0b','#4f83f7','#10b981','#ef4444','#a78bfa','#34d399','#fb923c','#f472b6','#94a3b8'];
 
 export default function DashboardPage() {
@@ -62,11 +67,11 @@ export default function DashboardPage() {
 
       {/* Stats */}
       <div className={styles.statsGrid}>
-        <StatCard label="Total Complaints" value={stats.total} accent="var(--blue)" />
-        <StatCard label="Pending" value={stats.pending} accent="var(--yellow)"
+        <StatCard label="Total Complaints" value={stats.total} icon={totalIcon} accent="var(--blue)" />
+        <StatCard label="Pending" value={stats.pending} icon={pendingIcon} accent="var(--yellow)"
           sub={stats.total ? `${Math.round(stats.pending/stats.total*100)}% of total` : undefined} />
-        <StatCard label="In Progress" value={stats.inProgress} accent="var(--blue)" />
-        <StatCard label="Resolved" value={stats.resolved} accent="var(--green)"
+        <StatCard label="In Progress" value={stats.inProgress} icon={inprogressIcon} accent="var(--blue)" />
+        <StatCard label="Resolved" value={stats.resolved} icon={resolvedIcon} accent="var(--green)"
           sub={stats.total ? `${Math.round(stats.resolved/stats.total*100)}% resolved` : undefined} />
       </div>
 
