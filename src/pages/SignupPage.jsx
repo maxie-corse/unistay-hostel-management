@@ -64,7 +64,7 @@ export default function SignupPage() {
               value={form.name}
               onChange={handleChange}
               className={styles.input}
-              placeholder="Arjun Mehta"
+              placeholder="Max Verstappen"
               autoComplete="name"
             />
           </div>
@@ -91,7 +91,7 @@ export default function SignupPage() {
                 value={form.roomNumber}
                 onChange={handleChange}
                 className={styles.input}
-                placeholder="A-204"
+                placeholder="033"
               />
             </div>
             <div className={styles.field}>
