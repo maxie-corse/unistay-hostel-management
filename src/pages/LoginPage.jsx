@@ -88,12 +88,6 @@ export default function LoginPage() {
           Don't have an account?{' '}
           <Link to="/signup" className={styles.switchLink}>Create one</Link>
         </p>
-
-        {/* Demo hint */}
-        <div className={styles.demo}>
-          <span>🔑</span>
-          <span>Demo: use any email you signed up with, or create a new account.</span>
-        </div>
       </div>
     </div>
   );
