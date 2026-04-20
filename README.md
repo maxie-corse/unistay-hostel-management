@@ -12,6 +12,17 @@
 
 ---
 
+## Demo Video
+Watch here: https://youtu.be/DPcH2Rtsz78?si=S18rNSQWnYr93XA9
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=DPcH2Rtsz78" target="_blank">
+    <img src="https://img.youtube.com/vi/DPcH2Rtsz78/0.jpg" width="560" height="315"/>
+  </a>
+</p>
+
+---
+
 ## Problem
 
 Student hostels currently handle complaints (cleaning, WiFi, electricity, ragging, etc.) through informal channels like:
