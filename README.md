@@ -8,8 +8,6 @@
 
 **Live Application:** https://unistay-hostel-management.vercel.app  
 
-> Use a test account or sign up to explore the full experience.
-
 ---
 
 ## Demo Video
